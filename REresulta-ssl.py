@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# 
 # avataan ilmo tiedosto ja tulostiedosto
 # 1.Luupissa
 #   1. Haetaan tuloksista nimi ja aika
@@ -15,7 +16,7 @@ lisenssiI = "d"
 
 seuraI = "e"
 sarjaI = "f"
-tiedosto_ssl = open("./outputs/ssl.txt", "w")
+tiedosto_ssl = open("outputs/ssl.txt", "w")
 
 infile_ilmo = open("inputs/ilmoittautumiset2.csv", 'r')
 
