@@ -1,9 +1,9 @@
-#avataan ilmo tiedosto ja tulostiedosto
+# -*- coding: utf-8 -*-
+# avataan ilmo tiedosto ja tulostiedosto
 # 1.Luupissa
 #   1. Haetaan tuloksista nimi ja aika
 #   2. Etsitään ilmosta nimellä
 #       a. Saadaan lisenssi, seura, sarja
-
 #   3. Generoidaan ssl-tulos rivi ja lisätään ssl tiedostoon
 
 nimiT = "a"
@@ -15,9 +15,9 @@ lisenssiI = "d"
 
 seuraI = "e"
 sarjaI = "f"
-tiedosto_ssl = open("ssl.txt", "w")
+tiedosto_ssl = open("./outputs/ssl.txt", "w")
 
-infile_ilmo = open("ilmoittautumiset2.csv", 'r')
+infile_ilmo = open("inputs/ilmoittautumiset2.csv", 'r')
 
 def lue_ilmo(nimiT, rivi2):
         nimiI = ""
@@ -42,7 +42,7 @@ def lue_ilmo(nimiT, rivi2):
 
 def lue_tulos():
 #Avataan tulostiedosto ja luetaan tiedot
-    with open("t20181017.csv", 'r') as infile_tulos:
+    with open("inputs/t20181017.csv", 'r') as infile_tulos:
 
         #Luetaan tuloksista nimet järjestyksessä, niin saadaan ssl-filuun valmiiksi oikeaan järjestykseen.
         #Otetaan nimi rivi kerrallaan ja sitten etsitään ilmoittautuneista loput puuttuvat tiedot (lisenssi, seura)
@@ -77,7 +77,7 @@ lue_tulos()
 print("*** Ja valmista tuli ***")
 tiedosto_ssl.close()
 
-ssl_txt = open("ssl.txt")
+ssl_txt = open("outputs/ssl.txt")
 lines = ssl_txt.readlines()
 for line in lines:
     print(line)
