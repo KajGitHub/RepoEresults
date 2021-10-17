@@ -33,7 +33,7 @@ with open(sys.argv[1], 'r') as csv_ilmo:
     ssl_file = open("ssl.txt", "w")
     for row in csv_reader:
         if
-        result = read_result(row[2])
-        seconds = get_seconds(result)
-        print(f'\t{row[1]:0>6}{row[2]:<23}{row[3]:<8}{row[0]:<10}{seconds:0>6}',file=ssl_file)
+            result = read_result(row[2])
+            seconds = get_seconds(result)
+            print(f'\t{row[1]:0>6}{row[2]:<23}{row[3]:<8}{row[0]:<10}{seconds:0>6}',file=ssl_file)
     ssl_file.close()
