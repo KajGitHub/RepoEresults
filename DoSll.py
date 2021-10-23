@@ -27,6 +27,15 @@ def read_result(name):
         for row in csv_reader:
             if (row[1] == name):
                 return row[3]
+
+# Helppi
+if (len(sys.argv) != 3):
+    print("\nScripti tarvitsee 2 argumenttia!\n")
+    print("1. Irman ilmoittautumis tiedosto CSV muodossa.")
+    print("2. EResults lite v3 tulos tiedoston CSV muodossa.\n")
+    print("ESIM: python DoSll.py ilmoittautuneet.csv tulokset.csv\n")
+    exit()
+
 # Pääohjelma
 # Avataan ilmoittautuneet tiedosto joka on saatu Irmasta
 with open(sys.argv[1], 'r') as csv_ilmo:
@@ -36,11 +45,11 @@ with open(sys.argv[1], 'r') as csv_ilmo:
         result = read_result(row[2]) # Haetaan tulos kilpailijalle nimellä tulos tiedostosta
         if result is None: # Jos kilpailijaa ei löydy tuloksista merkitään ei lähteneeksi (EIL)
             seconds = "EIL"
-            print(f'\t{row[1]:0>6}{row[2]:<23}{row[3]:<8}{row[0]:<10}{seconds:<6}', file=ssl_file)
+            print(f'{row[1]:0>6}{row[2]:<23}{row[3]:<8}{row[0]:<10}{seconds:<6}\r', file=ssl_file)
         else:
             seconds = get_seconds(result)
             if (seconds == "HYL"): # Jos kilpailija löytyy tuloksista mutta ei ole aikaa niin merkitään hylätyksi (HYL)
-                print(f'\t{row[1]:0>6}{row[2]:<23}{row[3]:<8}{row[0]:<10}{seconds:<6}', file=ssl_file)
+                print(f'{row[1]:0>6}{row[2]:<23}{row[3]:<8}{row[0]:<10}{seconds:<6}\r', file=ssl_file)
             else:
                 # Kirjoitetaan tulos ssl.txt tiedostoon
                 # row[1] lisenssinumero 6 merkkiä, jos on lyhyempi kuin 6 merkkiä niin täytetään nollia eteen (:0>6)
@@ -48,8 +57,7 @@ with open(sys.argv[1], 'r') as csv_ilmo:
                 # row[3] seura 8 merkkiä, täytetään vasemmalta (:<8)
                 # row[0] sarja 10 merkkiä, täytetään vasemmalta (:<10)
                 # seconds on tulos sekunteina 6 merkkiä, täytetään oikealta ja lisätään nollat eteen (:0>6)
-                print(f'\t{row[1]:0>6}{row[2]:<23}{row[3]:<8}{row[0]:<10}{seconds:0>6}',file=ssl_file)
+                print(f'{row[1]:0>6}{row[2]:<23}{row[3]:<8}{row[0]:<10}{seconds:0>6}\r',file=ssl_file)
     ssl_file.close()
     # To Do
     # EIL vain monipäiväkisassa
-    # Tietue-erottimena (merkit 54 ja 55) käytetään merkkiä (cr + lf) eli (hex’OD’ + ’OA’)
