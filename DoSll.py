@@ -65,3 +65,4 @@ with open("ssl.txt", "w") as ssl_txt_file:
 ssl_txt_file.close()
     # To Do
     # EIL vain monipäiväkisassa
+    # EIL yhden päivän kisassa pitäisi vain jättää pois tuloksista?
