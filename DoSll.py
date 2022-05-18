@@ -66,3 +66,5 @@ ssl_txt_file.close()
     # To Do
     # EIL vain monipäiväkisassa
     # EIL yhden päivän kisassa pitäisi vain jättää pois tuloksista?
+    # Ilmoittautuneet.csv pitää olla solut puolipilkuilla eroteltuna
+    # Tulos tiedostossa pitää olla tyhjissäkin riveissä erottimet esim. ;;;;
